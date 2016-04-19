@@ -24,7 +24,7 @@ session_start();
 			
 			</header>
 			
-			<nav class="navbar navbar-default">			
+			<nav class="navbar navbar-default" id="nav">			
 				<ul class="nav nav-pills">
 					<li role="presentation" <?php if ($title=="Accueil") echo 'class="active"'; ?> ><a href="accueil.php">Accueil</a></li>
 					<li role="presentation" <?php if ($title=="Création de Trajet") echo 'class="active"'; ?> ><a href="creation_trajet.php">Création de Trajet</a></li>
