@@ -96,13 +96,27 @@ $requete="INSERT INTO utilisateur (pseudo, nom, prenom, motdepasse, age, sexe, t
 $reponse=$pdo->prepare($requete);
 $reponse->execute(array($pseudo, $nom, $prenom, $motdepasse, $age, $sexe, $telephone, $email, $avatar));
 
+$_SESSION['pseudo'] = $pseudo;
+
+//On récupère l'id de l'utilisateur qui vient de s'inscrire pour le garder en variable de session
+$requete = "SELECT * FROM utilisateur WHERE pseudo = ?";
+$reponse = $pdo->prepare($requete);
+$reponse->execute(array($pseudo));
+
+$enregistrements = $reponse->fetchAll();
+
+$membre_id = $enregistrements[0]['id'];
+
+$_SESSION['membre_id'] = $membre_id;
 
 ?>	
 
-<h1> Bienvenue sur TravelBuddy! Nous espérons que vous trouverez chaussure à votre pied! </h1>
+<h1> Bienvenue sur TravelBuddy! </br></br> Nous espérons que vous trouverez chaussure à votre pied! </h1> 
+<br/><a href="compte.php"> Mon compte </a>
 
-<!-- Renvoyer vers la page avec les données déjà remplies gardées?
-	générer valeur au hasard pour le nm du fichier image avatar pour plus de sécurité-->
+<!-- Si on a le temps:
+	-Renvoyer vers la page avec les données déjà remplies gardées?
+	-générer valeur au hasard pour le nom du fichier image avatar pour plus de sécurité -->
 
 <?php
 include "pied.php";

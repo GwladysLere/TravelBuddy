@@ -1,6 +1,16 @@
 <?php
-$title = "Mon Compte";
+$title = "Connexion";
 include "entete.php";
+
+
+//On vérifie si la personne est déjà connectée 
+if (isset($_SESSION['membre_id']) && $_SESSION['membre_id'] > 0)
+	{
+		header('Location: http://127.0.0.1/TravelBuddy/compte.php');
+		exit(); 
+	}
+	
+// a finir quand temps : on peut voir son profil et modif ses coordonnées quand on est connecté
 ?>
 
 <h1> Mon compte </h1>

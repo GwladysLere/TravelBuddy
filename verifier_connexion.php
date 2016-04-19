@@ -3,10 +3,7 @@ $title = "Connexion";
 include "entete.php";
 require_once("connexion_base.php");
 
-if (isset($_SESSION['pseudo']))
-	{
-		echo "Bienvenue ".$_SESSION['pseudo'] ;
-	}
+
 ?>
 		
 		<div class="page-header">
@@ -14,10 +11,25 @@ if (isset($_SESSION['pseudo']))
 		</div>
 		
 <?php
+//On vérifie que les champs sont remplis
+if (empty($_POST['pseudo']) or empty($_POST['motdepasse']) )
+{
+	echo "Vous devez renseigner tous les champs </br>";
+	echo "<a href='connexion.php'> Retour </a>";
+	exit();
+}	
+else
+{
+	$pseudo = $_POST['pseudo'];
+	$motdepasse = MD5($_POST['motdepasse']);
+}
+
+// On vérifie si le mot de passe correspond et on remplie une variable de session
+
 // exécuter une requete MySQL de type SELECT .. WHERE
-$requete = "SELECT * FROM membre WHERE pseudo = ?";
+$requete = "SELECT * FROM utilisateur WHERE pseudo = ?";
 $reponse = $pdo->prepare($requete);
-$reponse->execute(array($_POST['pseudo']));
+$reponse->execute(array($pseudo));
 
 // récupérer tous les enregistrements dans un tableau
 $enregistrements = $reponse->fetchAll();
@@ -25,27 +37,30 @@ $enregistrements = $reponse->fetchAll();
 // connaître le nombre d'enregistrements
 $nombreReponses = count($enregistrements);
 
-// tester si un enregistrement existe (on suppose qu'un même pseudo n'existe qu'une fois)
+// tester si un enregistrement existe (un même pseudo n'existe qu'une fois)
 if ($nombreReponses > 0)
 {
-	if ($enregistrements[0]['motdepasse'] == MD5($_POST['motdepasse']))
+	if ($enregistrements[0]['motdepasse'] == $motdepasse)
 	{
-		echo "Bienvenue ".$_SESSION['pseudo'] ;
-		$pseudo = $_POST['pseudo'] ;
 		$_SESSION['pseudo'] = $pseudo ;
-		$_SESSION['membre_id'] = $idmembre ;
+		$_SESSION['membre_id'] = $enregistrements[0]['id'] ;
+		echo "Bienvenue ".$_SESSION['pseudo'] ;
 	}
 	else
 	{
 		echo "<p>Mot de passe incorrect</p>" ;
-		echo '<p><a class="btn btn-primary btn-lg" href="connexion.php" role="button">Retour</a></p>' ;
+		echo "<a href='connexion.php'> Retour </a>" ;
 	}
 }
 else
 {
 	echo "<p>Données de connexion incorrectes</p>" ;
-	echo '<p><a class="btn btn-primary btn-lg" href="connexion.php" role="button">Retour</a></p>' ;
+	echo "<a href='connexion.php'> Retour </a>";
 }
+
+
+/* si le temps:
+	-ajouter la page mon compte en dessous du bienvenue */
 ?>
 
 <?php
