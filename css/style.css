@@ -4,6 +4,16 @@ color:white;
 width:100%;
 height : 300px;
 border-radius:10px;
+border-bottom-right-radius: 0px;
+border-bottom-left-radius: 0px;
+}
+
+#nav{
+	min-height: 0px;
+	border-top-right-radius: 0px;
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
 }
 
 #TB{
@@ -12,10 +22,15 @@ padding:25px;
 font-family: Berlin Sans FB;
 }
 
-.row{
+.pied{
 color:#545453;
 background-image:url("../image/sand.jpg");
 border-radius:10px;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+padding:0px 70px;
+margin-top: 50px;
 }
 
 .form_inscription {
@@ -30,12 +45,30 @@ border-radius:10px;
 
 .form_inscription label{
 	display: inline-block;
-	width: 90px;
+	width: 150px;
 	text-align:right;
 }
 
+#avatar{
+	display: inline-block;
+}
+
 .form_inscription fieldset {
-	padding: 1em;
+	padding: 0.35em 0.625em 0.75em;
 	border: 1px solid #CCC;
 	border-radius:1em;
+	background-color: #E8D292;
+	margin: 0px 2px;
+	
+}
+#bouton_inscription {
+	margin-top: 2em; 
+}
+
+#form_connexion label{
+	text-align : left;
+}
+
+.bouton_sinscrire {
+	padding-top: 2em;
 }
