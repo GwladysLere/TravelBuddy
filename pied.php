@@ -1,6 +1,6 @@
-<footer class="pied">
+<footer class="row">
 		
-  <div>
+  <div class="col-xs-9 col-md-5">
   					
 						<h4>A propos</h4>
 						<p><a href="https://fr.wikipedia.org/">Wikipedia</a></p>
@@ -9,8 +9,8 @@
 						<p><a href="#">Vestibulum at eros</a></p>
 					
   </div>
-
-  <div>
+  
+  <div class="col-xs-9 col-md-5">
   					
 						<h4>Infos Pratiques</h4>
 						<p><a href="https://fr.wikipedia.org/">Wikipedia</a></p>
