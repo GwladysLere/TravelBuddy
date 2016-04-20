@@ -21,6 +21,7 @@ $email = $enregistrements[0]['email'];
 $telephone = $enregistrements[0]['telephone'];
 $age = $enregistrements[0]['age'];
 $sexe = $enregistrements[0]['sexe'];
+$description = $enregistrements[0]['description'];
 ?>
 
 <h1> Mon compte </h1>
@@ -104,6 +105,10 @@ $sexe = $enregistrements[0]['sexe'];
 				<tr>
 					<td><b>Sexe :</b></td> 
 					<td> <?php echo $sexe; ?> </td>
+				</tr>
+				<tr>
+					<td><b>Description :</b></td> 
+					<td> <?php echo $description; ?> </td>
 				</tr>
 			</table>
 		

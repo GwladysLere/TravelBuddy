@@ -20,7 +20,7 @@ elseif (!empty($_POST['nom']) and !empty($_POST['prenom']) and !empty($_POST['em
 	$traitement = 2;
 	
 }
-elseif (!empty($_POST['age']) and !empty($_POST['sexe']))
+elseif (!empty($_POST['age']) and !empty($_POST['sexe']) and !empty($_POST['description']))
 {
 	$traitement = 3;
 	
@@ -142,11 +142,12 @@ elseif ($traitement == 3)
 {
 	$age = $_POST['age'];
 	$sexe = $_POST['sexe'];
+	$description = $_POST['description'];
 	
 	//On entre les nouvelles données dans la base
-	$requete="UPDATE utilisateur SET age=?, sexe=? WHERE pseudo=?";
+	$requete="UPDATE utilisateur SET age=?, sexe=?, description=? WHERE pseudo=?";
 	$reponse=$pdo->prepare($requete);
-	$reponse->execute(array($age, $sexe, $_SESSION['pseudo']));
+	$reponse->execute(array($age, $sexe, $description, $_SESSION['pseudo']));
 }
 
 

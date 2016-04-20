@@ -4,7 +4,7 @@ include "entete.php";
 require_once("connexion_base.php");
 
 //Si tous les champs du formulaire sont renseignés on récupère les données
-if (empty($_POST['pseudo']) or empty($_POST['motdepasse']) or empty($_POST['motdepasse2']) or empty($_POST['nom']) or empty($_POST['prenom']) or empty($_POST['email'] or empty($_POST['telephone']) or empty($_POST['age']) or empty($_POST['sexe'])) )
+if (empty($_POST['pseudo']) or empty($_POST['motdepasse']) or empty($_POST['motdepasse2']) or empty($_POST['nom']) or empty($_POST['prenom']) or empty($_POST['email'] or empty($_POST['telephone']) or empty($_POST['age']) or empty($_POST['sexe']) or empty($_POST['description'])) )
 {
 	echo "Vous devez renseigner tous les champs </br>";
 	echo "<a href='inscription.php'> Retour </a>";
@@ -21,6 +21,7 @@ else
 	$telephone = $_POST['telephone'];
 	$age = $_POST['age'];
 	$sexe = $_POST['sexe'];
+	$description = $_POST['description'];
 }
 
 //On vérifie que le mot de passe est le même dans mot de passe et confirmation
@@ -92,9 +93,9 @@ else
 }
 
 //On enregistre les données dans la base de données
-$requete="INSERT INTO utilisateur (pseudo, nom, prenom, motdepasse, age, sexe, telephone, email, avatar) VALUES(?,?,?,?,?,?,?,?,?)";
+$requete="INSERT INTO utilisateur (pseudo, nom, prenom, motdepasse, age, sexe, telephone, email, avatar, description) VALUES(?,?,?,?,?,?,?,?,?,?)";
 $reponse=$pdo->prepare($requete);
-$reponse->execute(array($pseudo, $nom, $prenom, $motdepasse, $age, $sexe, $telephone, $email, $avatar));
+$reponse->execute(array($pseudo, $nom, $prenom, $motdepasse, $age, $sexe, $telephone, $email, $avatar, $description));
 
 $_SESSION['pseudo'] = $pseudo;
 

@@ -22,6 +22,10 @@ padding:25px;
 font-family: Berlin Sans FB;
 }
 
+#bouton_deconnexion {
+	margin-right : 1px;
+}
+
 .pied{
 color:#545453;
 background-image:url("../image/sand.jpg");
@@ -61,6 +65,11 @@ margin-top: 50px;
 	margin: 0px 2px;
 	
 }
+
+#description{
+	margin-left: 150px;
+}
+
 #bouton_inscription {
 	margin-top: 2em; 
 }

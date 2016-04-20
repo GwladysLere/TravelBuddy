@@ -4,13 +4,7 @@ include "entete.php";
 require_once("connexion_base.php");
 
 
-?>
-		
-		<div class="page-header">
-			<h1>Connexion à votre compte</h1>
-		</div>
-		
-<?php
+
 //On vérifie que les champs sont remplis
 if (empty($_POST['pseudo']) or empty($_POST['motdepasse']) )
 {
@@ -44,7 +38,7 @@ if ($nombreReponses > 0)
 	{
 		$_SESSION['pseudo'] = $pseudo ;
 		$_SESSION['membre_id'] = $enregistrements[0]['id'] ;
-		echo "Bienvenue ".$_SESSION['pseudo'] ;
+		echo "<h1>Bienvenue ".$_SESSION['pseudo']."</h1>" ;
 	}
 	else
 	{

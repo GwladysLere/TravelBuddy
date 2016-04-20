@@ -30,5 +30,9 @@ session_start();
 					<li role="presentation" <?php if ($title=="Création de Trajet") echo 'class="active"'; ?> ><a href="creation_trajet.php">Création de Trajet</a></li>
 					<li role="presentation" <?php if ($title=="Trajets") echo 'class="active"'; ?> ><a href="trajet.php">Recherche de Trajet</a></li>
 					<li role="presentation" <?php if ($title=="Mon Compte") echo 'class="active"'; ?> ><a href="connexion.php">Mon Compte</a></li>
+					<li class="navbar-right" id="bouton_deconnexion"> <?php if (isset($_SESSION['membre_id']) && $_SESSION['membre_id'] > 0) echo "<a href='deconnexion.php'>Se déconnecter </a>"; ?> </li>
 				</ul>
+				
+				
+				
 			</nav>
