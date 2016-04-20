@@ -86,3 +86,22 @@ margin-top: 50px;
 	margin-top : 2em;
 }
 
+.createur {
+	padding: 0.35em 0.625em 0.75em;
+	border: 1px solid #CCC;
+	border-radius:1em;
+	margin: 0px 2px;
+}
+
+.contact{
+	padding: 0.35em 0.625em 0.75em;
+	border: 1px solid #CCC;
+	border-radius:1em;
+	margin: 0px 2px;
+	background-color: #96F1FF;
+}
+
+.aide{
+	
+	
+}
