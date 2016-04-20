@@ -75,6 +75,8 @@ include "entete.php";
 				</div>
 			
 		</form>
+		
+<!-- si on a le temps : faire plutôt la demande de date de naissance et faire le calcul de l'âge automatiquement -->
 <?php
 include "pied.php";
 ?>

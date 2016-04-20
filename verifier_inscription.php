@@ -8,6 +8,7 @@ if (empty($_POST['pseudo']) or empty($_POST['motdepasse']) or empty($_POST['motd
 {
 	echo "Vous devez renseigner tous les champs </br>";
 	echo "<a href='inscription.php'> Retour </a>";
+	include "pied.php";
 	exit();
 }	
 else
@@ -29,6 +30,7 @@ if ($motdepasse != $motdepasse2)
 {
 	echo"La confirmation du mot de passe n'est pas bonne. Tapez le même mot de passe dans le champ mot de passe et le champ confirmation <br/>";
 	echo "<a href='inscription.php'> Retour </a>";
+	include "pied.php";
 	exit();
 }
 
@@ -43,6 +45,7 @@ for ($i=0; $i<$nombreReponses; $i++)
 	if ($enregistrements[$i]['pseudo'] == $pseudo)
 	{
 		echo "Pseudo déjà pris. Veuillez entrer un nouveau pseudo. <br/> <a href='inscription.php'> Retour </a> ";
+		include "pied.php";
 		exit();
 	}
 }
@@ -57,6 +60,7 @@ if(isset($_FILES['avatar'])) //s'il y a un fichier
 	if($taille > $taille_max) 
 	{
 		echo "Le fichier pour l'image de profil est trop gros. <br/> <a href='inscription.php'> Retour </a>";
+		include "pied.php";
 		exit();
 	}
 
@@ -66,6 +70,7 @@ if(isset($_FILES['avatar'])) //s'il y a un fichier
 	if (!in_array($extension_fichier, $extensions_valides)) 
 	{
 		echo "Extension du fichier incorrecte. Vous devez choisir un fichier en .jpeg, .jpg ou .png . <br/> <a href='inscription.php'> Retour </a>";
+		include "pied.php";
 		exit();
 	}
 
@@ -73,6 +78,7 @@ if(isset($_FILES['avatar'])) //s'il y a un fichier
 	if($_FILES['avatar']['error'] > 0) 
 	{
 		echo "Erreur lors du transfert du fichier image de profil. <br/> <a href='inscription.php'> Retour </a>";
+		include "pied.php";
 		exit();
 	}
 
@@ -83,6 +89,7 @@ if(isset($_FILES['avatar'])) //s'il y a un fichier
 	if(!move_uploaded_file($_FILES['avatar']['tmp_name'], $dossier . $fichier))
 	{
 		echo "Echec de l'upload <br/> <a href='inscription.php'> Retour </a>";
+		include "pied.php";
 		exit();
 	}
 	
@@ -90,6 +97,8 @@ if(isset($_FILES['avatar'])) //s'il y a un fichier
 else
 {
 	echo "Vous devez donner une image de profil. <br/> <a href='inscription.php'> Retour </a>";
+	include "pied.php";
+	exit();
 }
 
 //On enregistre les données dans la base de données

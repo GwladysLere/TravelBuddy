@@ -10,6 +10,7 @@ if (empty($_POST['pseudo']) or empty($_POST['motdepasse']) )
 {
 	echo "Vous devez renseigner tous les champs </br>";
 	echo "<a href='connexion.php'> Retour </a>";
+	include "pied.php";
 	exit();
 }	
 else

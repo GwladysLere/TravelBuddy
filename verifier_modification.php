@@ -31,6 +31,7 @@ if ($traitement == 0)
 	echo $_POST['pseudo']."mdp1".$_POST['ancien_motdepasse']."mdp2".$_POST['motdepasse']."mdp3".$_POST['motdepasse2'].$_FILES['avatar'];
 	echo "Vous devez remplir tous les champs";
 	echo "<a href='".$_POST['modif']."'> Retour </a>";
+	include "pied.php";
 	exit();
 }
 
@@ -54,6 +55,7 @@ if ($traitement == 1)
 	{
 		echo"L'ancien mot de passe ne correspond pas. <br/>";
 		echo "<a href='modifier_infos_connexion.php'> Retour </a>";
+		include "pied.php";
 		exit();
 	}
 	
@@ -62,6 +64,7 @@ if ($traitement == 1)
 	{
 		echo"La confirmation du mot de passe n'est pas bonne. Tapez le même mot de passe dans le champ mot de passe et le champ confirmation <br/>";
 		echo "<a href='modifier_infos_connexion.php'> Retour </a>";
+		include "pied.php";
 		exit();
 	}
 	
@@ -74,6 +77,7 @@ if ($traitement == 1)
 		if($taille > $taille_max) 
 		{
 			echo "Le fichier pour l'image de profil est trop gros. <br/> <a href='inscription.php'> Retour </a>";
+			include "pied.php";
 			exit();
 		}
 
@@ -83,6 +87,7 @@ if ($traitement == 1)
 		if (!in_array($extension_fichier, $extensions_valides)) 
 		{
 			echo "Extension du fichier incorrecte. Vous devez choisir un fichier en .jpeg, .jpg ou .png . <br/> <a href='inscription.php'> Retour </a>";
+			include "pied.php";
 			exit();
 		}
 
@@ -90,6 +95,7 @@ if ($traitement == 1)
 		if($_FILES['avatar']['error'] > 0) 
 		{
 			echo "Erreur lors du transfert du fichier image de profil. <br/> <a href='inscription.php'> Retour </a>";
+			include "pied.php";
 			exit();
 		}
 		
@@ -104,6 +110,7 @@ if ($traitement == 1)
 		if(!move_uploaded_file($_FILES['avatar']['tmp_name'], $dossier . $fichier))
 		{
 			echo "Echec de l'upload <br/> <a href='inscription.php'> Retour </a>";
+			include "pied.php";
 			exit();
 		}
 	
