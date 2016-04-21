@@ -66,6 +66,10 @@ margin-top: 50px;
 	
 }
 
+label[for="description"] {
+	vertical-align: top;
+}
+
 #description{
 	margin-left: 160px;
 }

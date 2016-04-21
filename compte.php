@@ -29,24 +29,18 @@ $description = $enregistrements[0]['description'];
 <section class="section_compte">
 	<fieldset>
 		<legend> Informations de connexion </legend>
-			<table>
-				<tr>
-					<td><?php echo "<img src='image/avatars/".$avatar."' alt='photo de profil' width='160' height='160' >"; ?> </td>
-				</tr>
-			</table>
-			<table>
-				<tr>
-					<td><b>Pseudo :</b></td> 
-					<td> <?php echo $_SESSION['pseudo']; ?> </td>
-				</tr>
-			</table>
+			<div>
+				<?php echo "<img src='image/avatars/".$avatar."' alt='photo de profil' width='160' height='160' >"; ?> 
+			</div>
+			
+			<div>
+				<b>Pseudo :</b>
+				<?php echo $_SESSION['pseudo']; ?> 
+			</div>
 		
-			<table>
-				<tr>
-					<td><b>Mot de passe :</b></td> 
-					<td> ******** </td>
-				</tr>
-			</table>
+			<div>
+				<b>Mot de passe : </b>  ********
+			</div>
 		
 		<div class="control-group">
 		  <div class="controls">
@@ -58,32 +52,25 @@ $description = $enregistrements[0]['description'];
 	
 	<fieldset>
 		<legend> Coordonnées </legend>
-			<table>
-				<tr>
-					<td><b>Nom :</b></td>
-					<td><?php echo $nom; ?> </td>
-				</tr>
-			</table>
-			<table>
-				<tr>
-					<td><b>Prénom :</b></td> 
-					<td> <?php echo $prenom; ?> </td>
-				</tr>
-			</table>
-		
-			<table>
-				<tr>
-					<td><b>Adresse mail :</b></td> 
-					<td> <?php echo $email; ?> </td>
-				</tr>
-			</table>
+			<div>
+				<b>Nom :</b>
+				<?php echo $nom; ?> 
+			</div>
 			
-			<table>
-				<tr>
-					<td><b>téléphone :</b></td> 
-					<td> <?php echo $telephone; ?> </td>
-				</tr>
-			</table>
+			<div>
+				<b>Prénom :</b> 
+				<?php echo $prenom; ?>
+			</div>
+		
+			<div>
+				<b>Adresse mail :</b> 
+				<?php echo $email; ?> 
+			</div>	
+			
+			<div>
+				<b>téléphone :</b> 
+				<?php echo $telephone; ?>
+			</div>	
 			
 		<div class="control-group">
 		  <div class="controls">
@@ -94,23 +81,22 @@ $description = $enregistrements[0]['description'];
 	
 	<fieldset>
 		<legend> Caractéristiques </legend>
-			<table>
-				<tr>
-					<td><b>Age :</b></td> 
-					<td> <?php echo $age; ?> </td>
-				</tr>
-			</table>
+		
+		<div>	
+			<b>Age :</b>
+			<?php echo $age; ?>
+		</div>		
 			
-			<table>
-				<tr>
-					<td><b>Sexe :</b></td> 
-					<td> <?php echo $sexe; ?> </td>
-				</tr>
-				<tr>
-					<td><b>Description :</b></td> 
-					<td> <?php echo $description; ?> </td>
-				</tr>
-			</table>
+			
+		<div>		
+			<b>Sexe :</b></td> 
+			<?php echo $sexe; ?> </td>
+		</div>
+		
+		<div>	
+			<b>Description :</b>
+			 <?php echo $description; ?> 
+		</div>
 		
 		<div class="control-group">
 		  <div class="controls">

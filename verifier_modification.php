@@ -28,7 +28,7 @@ elseif (!empty($_POST['age']) and !empty($_POST['sexe']) and !empty($_POST['desc
 
 if ($traitement == 0)
 {
-	echo $_POST['pseudo']."mdp1".$_POST['ancien_motdepasse']."mdp2".$_POST['motdepasse']."mdp3".$_POST['motdepasse2'].$_FILES['avatar'];
+	
 	echo "Vous devez remplir tous les champs";
 	echo "<a href='".$_POST['modif']."'> Retour </a>";
 	include "pied.php";

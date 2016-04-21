@@ -21,7 +21,7 @@ require_once("connexion_base.php");
 			</div>
 			<div>
 				<label for="description"> Décrivez vous </label>
-				<p id="description"><textarea name="description" rows="10" cols="50" placeholder="décrivez ce que vous aimez, votre personnalité afin d'aider les autres à comprendre vos centres d'intérêts" ></textarea></p>
+				<textarea name="description" rows="10" cols="50" placeholder="décrivez ce que vous aimez, votre personnalité afin d'aider les autres à comprendre vos centres d'intérêts" ></textarea>
 			</div>
 			
 			<input type="hidden" name="modif" value="modifier_caracteristiques.php" />

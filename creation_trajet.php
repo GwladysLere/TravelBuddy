@@ -470,13 +470,13 @@ if (empty($_SESSION['membre_id']) or $_SESSION['membre_id'] == 0)
 		</div>
 		
 		<div>
-			<label for="nb_participants"> Nombre partcipants:</label>
+			<label for="nb_participants"> Nombre de places:</label>
 			<input type="text" name="nb_participants" placeholder="2"/>
 		</div>
 		
 		<div>
 			<label for="description"> Décrivez vous </label>
-			<p id="description"><textarea name="description" rows="10" cols="50" placeholder="Donnez les étapes prévues. Donnez des détails sur votre voyage, décrivez ce que vous voulez faire d'autre, quelles sont vos envies. " ></textarea></p>
+			<textarea name="description" rows="10" cols="50" placeholder="Donnez les étapes prévues. Donnez des détails sur votre voyage, décrivez ce que vous voulez faire d'autre, quelles sont vos envies. " ></textarea>
 		</div>
 		
 		<div>
