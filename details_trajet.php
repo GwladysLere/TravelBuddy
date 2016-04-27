@@ -44,7 +44,7 @@ $nbReponses = count($enregistrements);
 		<legend> Trajet </legend>
 			
 		<div>
-			<?php echo "<b>Départ : </b>".$ville_depart." en ".$pays_depart; ?> 
+			<?php echo "<b>Départ : </b>".$ville_depart." en ".$pays_depart; ?>
 		</div>
 		
 		

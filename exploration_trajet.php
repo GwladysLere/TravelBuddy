@@ -6,13 +6,19 @@ require_once("connexion_base.php");
 
 $membre_id = $_SESSION['membre_id'];
 $id_trajet = $_POST['id_trajet'];
-$id_utilisateur = $_POST['id_utilisateur'];
+/*$id_utilisateur = $_POST['id_utilisateur'];*/
 //On récupère les données du trajet voulu de l'utilisateur
-$requete = "SELECT * FROM trajet";
+//$requete = "SELECT * FROM trajet, utilisateur WHERE trajet.id_utilisateur=utilisateur.id";
+$requete = "SELECT * FROM trajet, utilisateur";
 $reponse = $pdo->prepare($requete);
 $reponse->execute(array($id_trajet));
 
 $enregistrements = $reponse->fetchAll();
+
+$id_utilisateur = $enregistrements[0]['pseudo'];
+$avatar = $enregistrements[0]['avatar'];
+$email = $enregistrements[0]['email'];
+$telephone = $enregistrements[0]['telephone'];
 	
 $ville_depart = $enregistrements[0]['ville_depart'];
 $ville_arrivee = $enregistrements[0]['ville_arrivee'];
@@ -50,11 +56,21 @@ $nbReponses = count($enregistrements);
 <section class="section_compte">
 	<fieldset>
 		<legend> Organisateur </legend>
-			
 		<div>
-			<?php echo "<b>Buddy : </b>".$id_utilisateur; ?> 
+			<div>
+				<?php echo "<img src='image/avatars/".$avatar."' alt='photo de profil' width='160' height='160' >"; ?> 
+			</div>
+				<?php echo "<b>Buddy : </b>".$id_utilisateur; ?>
+		</div>		
+		<div>
+			<?php
+			/*if (empty($_SESSION['membre_id']) and $_SESSION['membre_id'] <> 0) ???? */
+				echo "</br> <b> email : </b>".$email;
+				echo "</br> <b> téléphone : </b>".$telephone;
+			
+			
+			?> 
 		</div>
-		<p> c'est ici qu'il faudrait mettre un lien vers l'utilisateur </p>
 		
 	</fieldset>
 	

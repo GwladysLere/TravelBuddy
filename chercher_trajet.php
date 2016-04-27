@@ -37,7 +37,7 @@ else
 	*/
 }
 
-$id_utilisateur = $_SESSION['membre_id'];
+/*$id_utilisateur = $_SESSION['membre_id'];*/
 
 //On récupère les trajets de l'utilisateur
 /*$requete = "SELECT * FROM trajet WHERE pays_depart = 'allemagne'";*/
@@ -50,7 +50,8 @@ $nombreReponses = count($enregistrements);
 ?>	
 
 <h1> <?php echo $pays_depart ?> ? Très bon choix ! </h1>
-<h3> Voyons ce qu'on a à vous proposer ... </h3> 
+<h3> Voyons ce que les Buddy ont proposé ... </h3> 
+</br>
 
 
 <?php
