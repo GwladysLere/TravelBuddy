@@ -74,7 +74,6 @@ $enregistrements = $reponse->fetchAll();
 
 $id_trajet = $enregistrements[0]['id'];
 
-
 //On enregistre les données sur les objectifs du voyage dans la table objectif de la base de données
 if ($objectif4 != 'vide')
 {

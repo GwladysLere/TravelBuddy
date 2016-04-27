@@ -4,8 +4,6 @@ include "entete.php";
 
 require_once("connexion_base.php");
 
-$membre_id = $_SESSION['membre_id'];
-
 ?>
 <fieldset>
 		<legend>Départ</legend>

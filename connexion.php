@@ -6,7 +6,7 @@ include "entete.php";
 //On vérifie si la personne est déjà connectée 
 if (isset($_SESSION['membre_id']) && $_SESSION['membre_id'] > 0)
 	{
-		header('Location: /TravelBuddy/compte.php');
+		header('Location: compte.php');
 		exit(); 
 	}
 	
