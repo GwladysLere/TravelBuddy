@@ -98,15 +98,10 @@ label[for="description"] {
 	background-color: #E8D292;
 }
 
-.contact{
+.contact, .condition, .conseil, .aide{
 	padding: 0.35em 0.625em 0.75em;
 	border: 1px solid #CCC;
 	border-radius:1em;
-	margin: 0px 2px;
+	margin: 10px 2px;
 	background-color: #E8D292;
-}
-
-.aide{
-	
-	
 }
