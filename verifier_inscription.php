@@ -82,7 +82,8 @@ if(isset($_FILES['avatar'])) //s'il y a un fichier
 		exit();
 	}
 
-	// Puis si tout est bon on l'enregistre dans un dossier sous le nom pseudo.extension puisque le pseudo est unique dans la base de données et ne correspond donc qu'à une personne
+	// Puis si tout est bon on l'enregistre dans un dossier sous le nom pseudo.extension 
+	// le pseudo est unique dans la base de données et ne correspond donc qu'à une personne
 	$dossier = 'image/avatars/';
 	$avatar = $pseudo.$extension_fichier;
 	$fichier = basename($avatar);
