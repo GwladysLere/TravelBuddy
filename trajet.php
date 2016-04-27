@@ -5,6 +5,7 @@ include "entete.php";
 require_once("connexion_base.php");
 
 ?>
+<form action="chercher_trajet.php" method="post" class="form_inscription" >
 <fieldset>
 		<legend>Départ</legend>
 		<div>
@@ -215,13 +216,18 @@ require_once("connexion_base.php");
 				</optgroup>
 			</select>
 		</div>
-		<p> Je propose de mettre un menu déroulant ici, qui donne un pays qui peut être celui d'arrivée ou de départ. 
-		 Je n'arrive juste pas à mettre ce qu'il y a dans cette liste dans ma requête SQL...
-		 du coup je l'ai mise en commentaire dans trajet.php. En attendant il affiche tout les trajets :3</p>
+		<p> Vous pouvez ici selectionner vos souhaits </p>
 	</fieldset>
-<?php
-$pays_souhaite = $_POST['pays_souhaite'];
-$requete = "SELECT * FROM trajet"; /*$requete = "SELECT * FROM trajet WHERE pays_depart=? OR pays_arrivee:?";*/
+	<div class="control-group">
+		<div class="controls">
+			<button class="btn btn-primary" id="bouton_inscription">Chercher</button>
+		</div>
+	</div>
+</form>	
+
+ <?php
+/*
+$requete = "SELECT * FROM trajet"; 
 $reponse = $pdo->prepare($requete);
 $reponse->execute(array($pays_souhaite));
 
@@ -230,11 +236,10 @@ $nbReponses = count($enregistrements);
 
 
 
-echo "<h1> Trajets disponibles </h1>";
+echo "<h1> Tout les trajets disponibles </h1>";
 	echo "<section class='section_compte'>";
 	for ($i=0; $i < $nbReponses; $i++)
 	{
-		
 		$ville_depart = $enregistrements[$i]['ville_depart'];
 		$ville_arrivee = $enregistrements[$i]['ville_arrivee'];
 		$pays_depart = $enregistrements[$i]['pays_depart'];
@@ -271,10 +276,7 @@ echo "<h1> Trajets disponibles </h1>";
 
 echo "</section>";
 
-?>
-
-http://lesjoiesducode.fr/post/75902010831/quand-je-commit-juste-avant-de-partir-en-week-end
-
-<?php
+?> 
+<?php */
 include "pied.php";
 ?>
