@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 20 Avril 2016 à 18:10
+-- Généré le :  Jeu 28 Avril 2016 à 19:03
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.19
 
@@ -45,8 +45,10 @@ CREATE TABLE `trajet` (
 --
 
 INSERT INTO `trajet` (`id`, `id_utilisateur`, `ville_depart`, `ville_arrivee`, `pays_depart`, `pays_arrivee`, `date_depart`, `duree`, `description`, `nb_base`, `nb_participants`) VALUES
-(1, 13, 'bordeaux', 'berlin', 'france', 'allemagne', '2016-04-29', '2 semaines', 'Nous sommes gentils et voulons aller voir Rammstein en concert.', 0, 2),
-(3, 13, 'berlin', 'Andalousie', 'allemagne', 'espagne', '2016-04-16', '4 jours', 'Nous sommes généreux, respectueux et aimons la tolérance.', 2, 5);
+(1, 13, 'bordeaux', 'berlin', 'france', 'allemagne', '2016-07-07', '5 jours', 'Nous sommes gentils et nous voulons voir Rammstein en concert', 2, 3),
+(4, 13, 'berlin', 'rome', 'allemagne', 'italie', '2016-04-22', '3 jours', 'Passe par la France', 2, 4),
+(3, 13, 'berlin', 'Andalousie', 'allemagne', 'espagne', '2016-04-16', '4 jours', 'Nous sommes généreux, respectueux et aimons la tolérance.', 2, 5),
+(5, 16, 'berlin', 'lisbonne', 'allemagne', 'portugal', '2016-04-23', '3 semaines', 'Nous voulons profiter de vacances simples', 2, 2);
 
 --
 -- Index pour les tables exportées
@@ -66,7 +68,7 @@ ALTER TABLE `trajet`
 -- AUTO_INCREMENT pour la table `trajet`
 --
 ALTER TABLE `trajet`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

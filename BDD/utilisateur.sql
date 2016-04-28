@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 20 Avril 2016 à 14:53
+-- Généré le :  Jeu 28 Avril 2016 à 19:03
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.19
 
@@ -45,9 +45,10 @@ CREATE TABLE `utilisateur` (
 --
 
 INSERT INTO `utilisateur` (`id`, `pseudo`, `nom`, `prenom`, `motdepasse`, `age`, `sexe`, `telephone`, `email`, `avatar`, `description`) VALUES
-(14, 'melinda', 'patxa', 'melinda', '8fa14cdd754f91cc6554c9e71929cce7', 32, 'femme', '0445675466', 'melinda@yahoo.fr', 'melinda.jpg', 'Je suis tolérante et respectieuse'),
-(13, 'sunder', 'ducroix', 'pierre', '874a9f457cc6743acc69b2a0cea62542', 56, 'homme', '0556764566', 'ducroix@yahoo.fr', 'sunder.jpg', '`J\'aime les ordinateurs et les paysages'),
-(16, 'scoubi', 'chien', 'scoubidou', '1ea31d12c145f5b54332e6ae2bb04ab7', 21, 'homme', '0556768798', 'scoubidou@gmail.com', 'scoubi.jpg', 'j\' aime les enquêtes, résoudre les mystères et manger. J\'aime aussi mes amis');
+(14, 'melinda', 'patxa', 'melinda', '8fa14cdd754f91cc6554c9e71929cce7', 32, 'femme', '0445675466', 'melinda@yahoo.fr', '14.jpg', 'Je suis tolérante et respectieuse'),
+(13, 'sunder', 'ducroix', 'pierre', '874a9f457cc6743acc69b2a0cea62542', 56, 'homme', '0556764566', 'ducroix@yahoo.fr', '13.jpg', '`J\'aime les ordinateurs et les paysages'),
+(16, 'scoubi', 'chien', 'scoubidou', '1ea31d12c145f5b54332e6ae2bb04ab7', 21, 'homme', '0556768798', 'scoubidou@gmail.com', '16.jpg', 'j\' aime les enquêtes, résoudre les mystères et manger. J\'aime aussi mes amis'),
+(21, 'lilou', 'delacroix', 'lilou', '301733ca8ff8afda93d92b48675f3c95', 23, 'femme', '0556789855', 'lilou@gmail.com', '21.jpg', '`j\'aime faire la fête');
 
 --
 -- Index pour les tables exportées
@@ -67,7 +68,7 @@ ALTER TABLE `utilisateur`
 -- AUTO_INCREMENT pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

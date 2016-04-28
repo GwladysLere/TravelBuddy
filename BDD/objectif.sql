@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 20 Avril 2016 à 18:09
+-- Généré le :  Jeu 28 Avril 2016 à 19:04
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.19
 
@@ -37,13 +37,20 @@ CREATE TABLE `objectif` (
 --
 
 INSERT INTO `objectif` (`id`, `id_trajet`, `nom`) VALUES
-(1, 1, 'apprendre'),
-(2, 1, 'fêtes'),
-(3, 1, 'rencontres'),
+(1, 1, 'fêtes'),
+(2, 1, 'rencontres'),
+(3, 1, 'paysages'),
+(17, 1, 'concert'),
 (7, 3, 'jardins'),
 (8, 3, 'fêtes'),
 (9, 3, 'animaux'),
-(10, 3, 'plages');
+(10, 3, 'plages'),
+(18, 4, 'photos'),
+(19, 4, 'expositions'),
+(20, 4, 'fêtes'),
+(21, 5, 'art'),
+(22, 5, 'apprendre'),
+(23, 5, 'bronzer');
 
 --
 -- Index pour les tables exportées
@@ -63,7 +70,7 @@ ALTER TABLE `objectif`
 -- AUTO_INCREMENT pour la table `objectif`
 --
 ALTER TABLE `objectif`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
