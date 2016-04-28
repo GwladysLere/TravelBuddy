@@ -4,7 +4,7 @@ include "entete.php";
 require_once("connexion_base.php");
 
 //Si tous les champs du formulaire sont renseignés on récupère les données
-if (empty($_POST['pays_souhaite']) /*or empty($_POST['ville_depart'])*/)
+if (empty($_POST['pays_souhaite']))
 {
 	echo "Beh alors ? on veut plus partir ? </br>";
 	echo "<a href='trajet.php'> Retour </a>";
@@ -22,7 +22,7 @@ else
 
 //On récupère les trajets correspondants aux choix de l'utilisateur
 
-$requete = "SELECT * FROM trajet WHERE pays_depart = ? and date_depart > ? ORDER BY date_depart";
+$requete = "SELECT * FROM trajet WHERE pays_depart = ? and date_depart >= ? ORDER BY date_depart";
 $reponse = $pdo->prepare($requete);
 $reponse->execute(array($pays_depart, $date_depart));
 
@@ -40,15 +40,14 @@ if ($nombreReponses<1){
  ?> 
  <h3> Et bien pour le moment... Il n'y a aucun trajet ! </h3>
  <h3> C'est l'occasion pour vous de créer un trajet ! Et de le partager avec des Buddy !</h3>
- </fieldset>
- <form action="creation_trajet.php" method="post">
-					<div class="control-group">
-					  <div class="controls">
-						<input type="hidden" name="id_trajet" value="<?php echo $id_trajet; ?>" />
-						<button class="btn btn-primary" id="bouton_modifier"> Créer votre propre trajet ! </button>
-					  </div>
-					</div>
-</form>
+
+ 
+<div class="control-group">
+  <div class="controls">
+	<a href="creation_trajet.php"><button class="btn btn-primary" id="bouton_modifier"> Créer votre propre trajet ! </button></a>
+  </div>
+</div>
+
 <?php
 }
 else

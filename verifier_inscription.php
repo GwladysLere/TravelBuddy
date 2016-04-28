@@ -51,6 +51,16 @@ for ($i=0; $i<$nombreReponses; $i++)
 	}
 }
 
+//On enregistre les données dans la base de données
+$requete="INSERT INTO utilisateur (pseudo, nom, prenom, motdepasse, age, sexe, telephone, email, avatar, description) VALUES(?,?,?,?,?,?,?,?,?,?)";
+$reponse=$pdo->prepare($requete);
+$reponse->execute(array($pseudo, $nom, $prenom, $motdepasse, $age, $sexe, $telephone, $email, "", $description));
+
+$_SESSION['pseudo'] = $pseudo;
+
+//On récupère l'id de l'utilisateur qui vient de s'inscrire pour le garder en variable de session et renommer la photo avec son id
+$dernier_id = $pdo->lastInsertId();
+$_SESSION['membre_id'] = $dernier_id;
 
 //Chargement de la photo de profil et enregistrement dans un dossier
 if(isset($_FILES['avatar'])) //s'il y a un fichier 
@@ -86,13 +96,20 @@ if(isset($_FILES['avatar'])) //s'il y a un fichier
 	// Puis si tout est bon on l'enregistre dans un dossier sous le nom pseudo.extension 
 	// le pseudo est unique dans la base de données et ne correspond donc qu'à une personne
 	$dossier = 'image/avatars/';
-	$avatar = $pseudo.$extension_fichier;
+	$avatar = $dernier_id.$extension_fichier;
 	$fichier = basename($avatar);
 	if(!move_uploaded_file($_FILES['avatar']['tmp_name'], $dossier . $fichier))
 	{
 		echo "Echec de l'upload <br/> <a href='inscription.php'> Retour </a>";
 		include "pied.php";
 		exit();
+	}
+	else
+	{
+		//On entre le lien de la photo dans la base
+		$requete="UPDATE utilisateur SET avatar=? WHERE id=?";
+		$reponse=$pdo->prepare($requete);
+		$reponse->execute(array($avatar, $dernier_id));
 	}
 	
 }
@@ -103,23 +120,7 @@ else
 	exit();
 }
 
-//On enregistre les données dans la base de données
-$requete="INSERT INTO utilisateur (pseudo, nom, prenom, motdepasse, age, sexe, telephone, email, avatar, description) VALUES(?,?,?,?,?,?,?,?,?,?)";
-$reponse=$pdo->prepare($requete);
-$reponse->execute(array($pseudo, $nom, $prenom, $motdepasse, $age, $sexe, $telephone, $email, $avatar, $description));
 
-$_SESSION['pseudo'] = $pseudo;
-
-//On récupère l'id de l'utilisateur qui vient de s'inscrire pour le garder en variable de session
-$requete = "SELECT * FROM utilisateur WHERE pseudo = ?";
-$reponse = $pdo->prepare($requete);
-$reponse->execute(array($pseudo));
-
-$enregistrements = $reponse->fetchAll();
-
-$membre_id = $enregistrements[0]['id'];
-
-$_SESSION['membre_id'] = $membre_id;
 
 ?>	
 

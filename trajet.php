@@ -220,7 +220,7 @@ require_once("connexion_base.php");
 			<label for="date_souhaite"> à partir de :</label>
 			<input type="date" name="date_souhaite"/>
 		</div>
-		<p> Vous pouvez ici selectionner vos souhaits </p>
+		
 	</fieldset>
 	<div class="control-group">
 		<div class="controls">

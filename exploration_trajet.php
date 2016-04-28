@@ -51,14 +51,12 @@ $nbReponses = count($enregistrements);
 
 
 ?>
-<form action="trajet.php" method="post">
-					<div class="control-group">
-					  <div class="controls">
-						<input type="hidden" name="id_trajet" value="<?php echo $id_trajet; ?>" />
-						<button class="btn btn-primary" id="bouton_modifier"> Retour à la recherche </button>
-					  </div>
-					</div>
-</form>
+
+<div class="control-group">
+  <div class="controls">
+	<a href="trajet.php"><button class="btn btn-primary" id="bouton_modifier"> Retour à la recherche </button></a>
+  </div>
+</div>
 
 <h1> <?php echo $pays_depart." vers ".$pays_arrivee; ?> </h1>
 

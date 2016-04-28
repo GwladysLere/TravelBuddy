@@ -4,6 +4,7 @@ include "entete.php";
 require_once("connexion_base.php");
 
 $pseudo = $_SESSION['pseudo'];
+$membre_id = $_SESSION['membre_id'];
 
 // cette variable permet de savoir quel est le formulaire qui fait appel à verifier_modification.php
 $traitement = 0;
@@ -105,7 +106,7 @@ if ($traitement == 1)
 		
 		// Puis si tout est bon on enregistre la nouvelle image dans le dossier
 		$dossier = 'image/avatars/';
-		$avatar = $pseudo.$extension_fichier;
+		$avatar = $membre_id.$extension_fichier;
 		$fichier = basename($avatar);
 		if(!move_uploaded_file($_FILES['avatar']['tmp_name'], $dossier . $fichier))
 		{
@@ -120,9 +121,9 @@ if ($traitement == 1)
 		echo "Vous devez donner une image de profil. <br/> <a href='modifier_infos_connexion.php'> Retour </a>";
 	}
 	//On entre les nouvelles données dans la base
-	$requete="UPDATE utilisateur SET pseudo=?, motdepasse=?, avatar=? WHERE pseudo=?";
+	$requete="UPDATE utilisateur SET pseudo=?, motdepasse=?, avatar=? WHERE id=?";
 	$reponse=$pdo->prepare($requete);
-	$reponse->execute(array($pseudo, $motdepasse, $avatar, $_SESSION['pseudo']));
+	$reponse->execute(array($pseudo, $motdepasse, $avatar, $membre_id));
 	
 	$_SESSION['pseudo'] = $pseudo;
 
