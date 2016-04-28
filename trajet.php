@@ -216,6 +216,10 @@ require_once("connexion_base.php");
 				</optgroup>
 			</select>
 		</div>
+		<div>
+			<label for="date_souhaite"> à partir de :</label>
+			<input type="date" name="date_souhaite"/>
+		</div>
 		<p> Vous pouvez ici selectionner vos souhaits </p>
 	</fieldset>
 	<div class="control-group">
@@ -226,57 +230,5 @@ require_once("connexion_base.php");
 </form>	
 
  <?php
-/*
-$requete = "SELECT * FROM trajet"; 
-$reponse = $pdo->prepare($requete);
-$reponse->execute(array($pays_souhaite));
-
-$enregistrements = $reponse->fetchAll();
-$nbReponses = count($enregistrements);
-
-
-
-echo "<h1> Tout les trajets disponibles </h1>";
-	echo "<section class='section_compte'>";
-	for ($i=0; $i < $nbReponses; $i++)
-	{
-		$ville_depart = $enregistrements[$i]['ville_depart'];
-		$ville_arrivee = $enregistrements[$i]['ville_arrivee'];
-		$pays_depart = $enregistrements[$i]['pays_depart'];
-		$pays_arrivee = $enregistrements[$i]['pays_arrivee'];
-		$date_depart = date("d/m/y", strtotime($enregistrements[$i]['date_depart']));
-		$duree = $enregistrements[$i]['duree'];
-		$id_trajet = $enregistrements[$i]['id'];
-		
-		?>
-		
-			<fieldset>
-				<legend> <?php echo $pays_depart." vers ".$pays_arrivee; ?> </legend>
-					<div>
-						<?php echo $ville_depart." vers ".$ville_arrivee; ?> 
-					</div>
-					
-					<div>
-						<?php echo "Départ le ".$date_depart." pour ".$duree; ?> 
-					</div>
-				
-				
-				<form action="exploration_trajet.php" method="post">
-					<div class="control-group">
-					  <div class="controls">
-						<input type="hidden" name="id_trajet" value="<?php echo $id_trajet; ?>" />
-						<button class="btn btn-primary" id="bouton_modifier">Voir détails</button>
-					  </div>
-					</div>
-				</form>
-				
-			</fieldset>
-<?php		
-	}
-
-echo "</section>";
-
-?> 
-<?php */
 include "pied.php";
 ?>

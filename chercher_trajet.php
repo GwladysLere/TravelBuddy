@@ -11,39 +11,20 @@ if (empty($_POST['pays_souhaite']) /*or empty($_POST['ville_depart'])*/)
 	include "pied.php";
 
 	exit();
-}	
-else
-{
-	$pays_depart = $_POST['pays_souhaite'];
-	/*$ville_depart = $_POST['ville_depart'];
-	$pays_arrivee = $_POST['pays_arrivee'];
-	$ville_arrivee = $_POST['ville_arrivee'];
-	$date_depart = $_POST['date_depart'];
-	$duree = $_POST['duree'];
-	$nb_base = $_POST['nb_base'];
-	$nb_participants = $_POST['nb_participants'];
-	$description = $_POST['description'];
-	$objectif1 = $_POST['objectif1'];
-	$objectif2 = $_POST['objectif2'];
-	$objectif3 = $_POST['objectif3'];
-	if (!empty($_POST['objectif4'])) 
-	{
-		$objectif4 = $_POST['objectif4'];
-	}
-	else 
-	{
-		$objectif4 = "vide";
-	}
-	*/
 }
 
-/*$id_utilisateur = $_SESSION['membre_id'];*/
+else
+{
+	$pays_depart = $_POST['pays_souhaite'];	
+	$date_depart = $_POST['date_souhaite'];	
+}
 
-//On récupère les trajets de l'utilisateur
-/*$requete = "SELECT * FROM trajet WHERE pays_depart = 'allemagne'";*/
-$requete = "SELECT * FROM trajet WHERE pays_depart = ? ";
+
+//On récupère les trajets correspondants aux choix de l'utilisateur
+
+$requete = "SELECT * FROM trajet WHERE pays_depart = ? and date_depart > ? ORDER BY date_depart";
 $reponse = $pdo->prepare($requete);
-$reponse->execute(array($pays_depart));
+$reponse->execute(array($pays_depart, $date_depart));
 
 $enregistrements = $reponse->fetchAll();
 $nombreReponses = count($enregistrements);
@@ -118,10 +99,6 @@ echo "</section>";
 
 
 <br/><a href="trajet.php"> Retour à la recherche </a>
-
-<!-- Si on a le temps:
-	- faire une page qui affiche les trajets de chaque utilisateur seulement, mes trajets donc comme un peu mon compte
--->
 
 <?php
 include "pied.php";

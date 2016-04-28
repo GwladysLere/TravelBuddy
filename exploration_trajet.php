@@ -4,18 +4,20 @@ include "entete.php";
 
 require_once("connexion_base.php");
 
-$membre_id = $_SESSION['membre_id'];
+
+
 $id_trajet = $_POST['id_trajet'];
-/*$id_utilisateur = $_POST['id_utilisateur'];*/
+
 //On récupère les données du trajet voulu de l'utilisateur
-//$requete = "SELECT * FROM trajet, utilisateur WHERE trajet.id_utilisateur=utilisateur.id";
-$requete = "SELECT * FROM trajet, utilisateur";
+
+$requete = "SELECT * FROM trajet, utilisateur WHERE trajet.id= ? and trajet.id_utilisateur=utilisateur.id ";
+
 $reponse = $pdo->prepare($requete);
 $reponse->execute(array($id_trajet));
-
 $enregistrements = $reponse->fetchAll();
-
 $id_utilisateur = $enregistrements[0]['pseudo'];
+
+
 $avatar = $enregistrements[0]['avatar'];
 $email = $enregistrements[0]['email'];
 $telephone = $enregistrements[0]['telephone'];
@@ -26,9 +28,17 @@ $pays_depart = $enregistrements[0]['pays_depart'];
 $pays_arrivee = $enregistrements[0]['pays_arrivee'];
 $date_depart = date("d/m/y", strtotime($enregistrements[0]['date_depart']));
 $duree = $enregistrements[0]['duree'];
-$description = $enregistrements[0]['description'];
+
 $nb_base = $enregistrements[0]['nb_base'];
 $nb_participants = $enregistrements[0]['nb_participants'];
+
+//On récupère la description du trajet
+
+$requete = "SELECT * FROM trajet WHERE id = ?";
+$reponse = $pdo->prepare($requete);
+$reponse->execute(array($id_trajet));
+$enregistrements = $reponse->fetchAll();
+$description = $enregistrements[0]['description'];
 
 //On récupère les objectifs du trajet
 $requete = "SELECT * FROM objectif WHERE id_trajet = ?";
@@ -36,7 +46,6 @@ $reponse = $pdo->prepare($requete);
 $reponse->execute(array($id_trajet));
 
 $enregistrements = $reponse->fetchAll();
-
 // On compte le nombre d'objectifs pour ce trajet
 $nbReponses = count($enregistrements);
 
@@ -64,10 +73,17 @@ $nbReponses = count($enregistrements);
 		</div>		
 		<div>
 			<?php
-			/*if (empty($_SESSION['membre_id']) and $_SESSION['membre_id'] <> 0) ???? */
+			if (empty($_SESSION['membre_id']) or $_SESSION['membre_id'] == 0)
+			{
+				echo "<b>Il faut se connecter pour avoir accès à plus dinformations.</b>";
+				echo "<a href='connexion.php'> Se connecter ou s'inscrire </a>";
+	 
+			}
+			else
+			{
 				echo "</br> <b> email : </b>".$email;
 				echo "</br> <b> téléphone : </b>".$telephone;
-			
+			}			
 			
 			?> 
 		</div>
