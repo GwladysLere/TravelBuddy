@@ -1,9 +1,9 @@
 ﻿<?php 
 // définition des paramètres de connexion à la base de données
-$config_base['hote']        = "127.0.0.1";
-$config_base['utilisateur'] = "root";
-$config_base['motdepasse']  = "";
-$config_base['nom_base']    = "conceptionweb";
+$config_base['hote']        = "mysql.hostinger.fr";
+$config_base['utilisateur'] = "u517109113_zaphy";
+$config_base['motdepasse']  = "M2CAYQ4pjr";
+$config_base['nom_base']    = "u517109113_bdd";
 
 // connexion à la base de données
 try {
