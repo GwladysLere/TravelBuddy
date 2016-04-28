@@ -23,6 +23,9 @@ include "entete.php";
 	
 	<div class="aide">
 		<h3>Recherche de Trajet</h3>
+		<p>La page <a href="trajet.php">Recherche de Trajet</a> est un outil vous listant les différents trajets disponibles partant de votre pays, afin que vous puissiez participer à celui qui vous correspond.</p>
+		<p>Dans le champ "Pays souhaité", choisissez votre pays de départ, puis votre date de départ. Les résultats affichés seront un bref résumé des différentes propositions correspondant à votre choix. Si un trajet attire votre attention, vous pouvez accéder aux détails de celui-ci pour prendre connaissance de l'organisateur, des modalités d'organisation, des objectifs du voyage, ainsi de suite.</p>
+		<p>S'il n'y a aucun trajet disponible pour la recherche associée, nous vous invitons à organiser votre propre trajet pour en faire profiter nos autres utilisateurs.</p>
 	</div>
 	
 <?php

@@ -64,7 +64,7 @@ $description = $enregistrements[0]['description'];
 		
 			<div>
 				<b>Adresse mail :</b> 
-				<?php echo $email; ?> 
+				<?php echo "<a href='mailto:".$email."'>".$email."</a>"; ?> 
 			</div>	
 			
 			<div>

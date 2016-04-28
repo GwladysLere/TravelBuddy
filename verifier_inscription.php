@@ -4,10 +4,10 @@ include "entete.php";
 require_once("connexion_base.php");
 
 //Si tous les champs du formulaire sont renseignés on récupère les données
-if (empty($_POST['pseudo']) or empty($_POST['motdepasse']) or empty($_POST['motdepasse2']) or empty($_POST['nom']) or empty($_POST['prenom']) or empty($_POST['email'] or empty($_POST['telephone']) or empty($_POST['age']) or empty($_POST['sexe']) or empty($_POST['description'])) )
+if (empty($_POST['pseudo']) or empty($_POST['motdepasse']) or empty($_POST['motdepasse2']) or empty($_POST['nom']) or empty($_POST['prenom']) or empty($_POST['email']) or empty($_POST['telephone']) or empty($_POST['age']) or empty($_POST['sexe']) or empty($_POST['description']))
 {
-	echo "Vous devez renseigner tous les champs </br>";
-	echo "<a href='inscription.php'> Retour </a>";
+	echo "<p>Vous devez renseigner tous les champs </p><br/>";
+	echo "<a href='inscription.php'><button type='button' class='btn btn-success'>Retour</button></a>";
 	include "pied.php";
 	exit();
 }	
@@ -28,8 +28,8 @@ else
 //On vérifie que le mot de passe est le même dans mot de passe et confirmation
 if ($motdepasse != $motdepasse2)
 {
-	echo"La confirmation du mot de passe n'est pas bonne. Tapez le même mot de passe dans le champ mot de passe et le champ confirmation <br/>";
-	echo "<a href='inscription.php'> Retour </a>";
+	echo"<p>La confirmation du mot de passe n'est pas bonne. Tapez le même mot de passe dans le champ mot de passe et le champ confirmation</p><br/>";
+	echo "<a href='inscription.php'><button type='button' class='btn btn-success'>Retour</button></a>";
 	include "pied.php";
 	exit();
 }
@@ -44,7 +44,8 @@ for ($i=0; $i<$nombreReponses; $i++)
 {
 	if ($enregistrements[$i]['pseudo'] == $pseudo)
 	{
-		echo "Pseudo déjà pris. Veuillez entrer un nouveau pseudo. <br/> <a href='inscription.php'> Retour </a> ";
+		echo "<p>Pseudo déjà pris. Veuillez entrer un nouveau pseudo.</p><br/>";
+		echo "<a href='inscription.php'><button type='button' class='btn btn-success'>Retour</button></a>";
 		include "pied.php";
 		exit();
 	}

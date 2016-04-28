@@ -67,7 +67,7 @@ $nbReponses = count($enregistrements);
 		<legend> Organisateur </legend>
 		<div>
 			<div>
-				<?php echo "<img src='image/avatars/".$avatar."' alt='photo de profil' width='160' height='160' >"; ?> 
+				<?php echo "<img src='image/avatars/".$avatar."' alt='photo de profil' width='160' height='160' />"; ?> 
 			</div>
 				<?php echo "<b>Buddy : </b>".$id_utilisateur; ?>
 		</div>		
@@ -75,13 +75,13 @@ $nbReponses = count($enregistrements);
 			<?php
 			if (empty($_SESSION['membre_id']) or $_SESSION['membre_id'] == 0)
 			{
-				echo "<b>Il faut se connecter pour avoir accès à plus dinformations.</b>";
+				echo "<b>Il faut se connecter pour avoir accès à plus d'informations.</b>";
 				echo "<a href='connexion.php'> Se connecter ou s'inscrire </a>";
 	 
 			}
 			else
 			{
-				echo "</br> <b> email : </b>".$email;
+				echo "</br> <b> email : </b><a href='mailto:".$email."'>".$email."</a>";
 				echo "</br> <b> téléphone : </b>".$telephone;
 			}			
 			
